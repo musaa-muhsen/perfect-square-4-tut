@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: arial;
+        }
+        section {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(33.333333333%, 1fr));
+            
+            /* flex-flow: row wrap; */
+            /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+
+/* flex-direction: row;             */
+            
+            /* grid-auto-rows: 300px; grid-template-columns: 1fr 1fr 1fr;*/
+ 
+        }
+        .square {
+            /* outline: red 1px solid; */
+      display: flex; 
+        }
+        .square div {
+            
+             margin: auto; 
+        }
+        .square:nth-child(odd) {
+            background: lightseagreen;
+        }
+        .square:nth-child(even) {
+            background: lightsalmon;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body >
+
+    <section class="container">
+         <div class="square">
+           <div>
+         <img src="sq2.jpg">
+            </div>
+         </div>
+         <div class="square">
+            <div>There</div>
+         </div>
+         <div class="square">
+            <div>World</div>
+         </div>
+         <div class="square">
+            <div>Hello</div>
+          </div>
+          <div class="square">
+             <div>There</div>
+          </div>
+          <div class="square">
+             <div>World</div>
+          </div>
+          <div class="square">
+            <div>Hello</div>
+          </div>
+          <div class="square">
+             <div>There</div>
+          </div>
+          <div class="square">
+             <div>World</div>
+          </div>
+          <div class="square">
+            <div>Hello</div>
+         </div>
+         <div class="square">
+            <div>World</div>
+         </div>
+         <div class="square">
+            <div>There</div>
+         </div>
+         <div class="square">
+            <div>World</div>
+         </div>
+   
+    </section>
+
+<script>
+    
+//      const sizeMatters =  document.querySelector('.square').offsetHeight;
+// //console.log(sizeMatters)
+//      if (sizeMatters === 0) {
+//         const width = document.querySelector(".square").offsetWidth;
+//         document.querySelector('.square').style.height = width + "px";
+//      }
+//onresize="myFunction()"
+
+
+
+
+window.addEventListener('resize', () => {
+        const width = document.querySelector(".square").offsetWidth;
+         console.log(width);
+        //document.querySelector('.container').style.gridTemplateRows = repeat;
+         //document.querySelector('.container').style.setProperty('grid-template-rows: repeat(3, 300px)');
+         document.querySelector('.container').style.setProperty('grid-auto-rows', `${width}px`);
+});
+
+  
+
+//check for Navigation Timing API support
+// if (window.performance) {
+//   console.info("window.performance works fine on this browser");
+// }
+// console.info(performance.navigation.type);
+// if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+//   console.info( "This page is reloaded" );
+// } else {
+//   console.info( "This page is not reloaded");
+// }
+
+window.addEventListener('load', () => {
+    const width = document.querySelector(".square").offsetWidth;
+    const widthS = width - 2;
+     //document.querySelector('.square').style.height = width + "px";
+     document.querySelector('.container').style.setProperty('grid-auto-rows', `${widthS}px`);
+});
+   
+   
+  // document.querySelector('.square').style.height = width;
+
+</script>
+</body>
+</html>
